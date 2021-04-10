@@ -47,7 +47,5 @@ resource "aws_instance" "private-app-1" {
     subnet_id = "${aws_subnet.private.id}"
     source_dest_check = false
 
-    tags {
-        Name = "Private Server 1"
-    }
+    
 }
