@@ -10,6 +10,10 @@ sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sour
 sudo add-apt-repository universe
 sudo apt-get update
 sudo apt-get install jenkins -y
+sudo sh -c 'touch /etc/sudoers.d/jenkins'
+sudo sh -c 'echo jenkins ALL=(ALL) NOPASSWD: ALL >> /etc/sudoers.d/jenkins'
+
+
 
 #install ansible
 sudo apt-add-repository ppa:ansible/ansible
