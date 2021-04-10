@@ -133,8 +133,7 @@ resource "aws_instance" "public-app-1" {
 }
 
 resource "aws_eip" "public-app-1" {
-    count    = length(data.aws_instance.public-app-1.ids)
-    instance = data.aws_instance.public-app-1.ids[count.index]
+    instance = aws_instance.public-app-1.id
     vpc = true
 }
 
