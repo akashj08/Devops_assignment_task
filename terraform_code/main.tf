@@ -124,7 +124,7 @@ resource "aws_instance" "public-app-1" {
     instance_type = "m1.small"
     key_name = "${var.aws_key_name}"
     vpc_security_group_ids = ["${aws_security_group.public_sg.id}"]
-    subnet_id = "${aws_subnet.public.id[count.index]}"
+    subnet_id = aws_subnet.public[count.index].id
     associate_public_ip_address = true
     source_dest_check = false
     
@@ -183,7 +183,7 @@ resource "aws_instance" "private-app-1" {
     instance_type = "m1.small"
     key_name = "${var.aws_key_name}"
     vpc_security_group_ids = ["${aws_security_group.private_sg.id}"]
-    subnet_id = "${aws_subnet.private.id[count.index]}"
+    subnet_id = aws_subnet.private[count.index].id
     source_dest_check = false
 
     
