@@ -96,7 +96,7 @@ resource "aws_nat_gateway" "default" {
   Web Servers
 */
 resource "aws_security_group" "public_sg" {
-    name = "vpc_sg"
+    name = "vpc_public_sg"
     description = "Allow incoming HTTP connections."
 
     ingress {
@@ -145,7 +145,7 @@ resource "aws_eip" "public-app-1" {
   Private Servers
 */
 resource "aws_security_group" "private_sg" {
-    name = "vpc_db"
+    name = "vpc_private_sg"
     description = "Allow incoming database connections."
 
     ingress { # SQL Server
