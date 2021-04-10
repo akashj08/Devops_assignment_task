@@ -58,6 +58,13 @@ node {
             
             sh "ssh app-server sudo docker run --name sprint-boot-app-ci-cd -d -p 8080:8080 akashj08/sprint-boot-app-ci-cd:${BUILD_NUMBER}"
        }
+  
+
+      stage ('Sanity Check') {
+            echo "We are going to deploy service"
+            sh "ssh app-server curl localhost:8080 "
+
+       }
 
 
 
