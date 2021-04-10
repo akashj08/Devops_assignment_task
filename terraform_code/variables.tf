@@ -7,7 +7,7 @@ variable "region" {
 }
 
 variable "ami_id" {
-  default     = "ami-030d28aa0956529bb"
+  default     = "ami-01e7ca2ef94a0ae86"
   type        = string
   description = "Region of the VPC"
 }
