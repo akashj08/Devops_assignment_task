@@ -133,7 +133,7 @@ resource "aws_instance" "public-app-1" {
 }
 
 resource "aws_eip" "public-app-1" {
-    instance = aaws_instance.public-app-1[count.index]
+    instance = aws_instance.public-app-1[count.index]
     vpc = true
 }
 
