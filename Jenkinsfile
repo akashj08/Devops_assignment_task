@@ -62,6 +62,7 @@ node {
 
       stage ('Sanity Check') {
             echo "We are going to deploy service"
+            sleep (10)
             sh "ssh app-server curl localhost:8080 "
 
        }
