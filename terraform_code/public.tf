@@ -21,9 +21,7 @@ resource "aws_security_group" "public_sg" {
 
     vpc_id = "${aws_vpc.default.id}"
 
-    tags {
-        Name = "Public SG"
-    }
+    
 }
 
 resource "aws_instance" "public-app-1" {
@@ -36,11 +34,7 @@ resource "aws_instance" "public-app-1" {
     associate_public_ip_address = true
     source_dest_check = false
     
-    
 
-    tags {
-        Name = "Public App 1"
-    }
 }
 
 resource "aws_eip" "public-app-1" {
