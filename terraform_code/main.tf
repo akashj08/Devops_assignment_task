@@ -181,6 +181,8 @@ resource "aws_instance" "private-app-1" {
     vpc_security_group_ids = ["${aws_security_group.private_sg.id}"]
     subnet_id = aws_subnet.private[count.index].id
     source_dest_check = false
+    user_data = "${file("install_scprit_private_server.sh")}"
+
 
     
 }
