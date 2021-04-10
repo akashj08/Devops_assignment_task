@@ -133,7 +133,8 @@ resource "aws_instance" "public-app-1" {
 }
 
 resource "aws_eip" "public-app-1" {
-    instance =aws_instance.public-app-1[0]
+    count = length(var.public_subnet_cidr_blocks)
+    instance =aws_instance.public-app-1[count.index].id
     vpc = true
 }
 
