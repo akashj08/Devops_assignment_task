@@ -100,9 +100,9 @@ resource "aws_security_group" "public_sg" {
     description = "Allow incoming HTTP connections."
 
     ingress {
-        from_port = -1
-        to_port = -1
-        protocol = "icmp"
+        from_port = 0
+        to_port = 0
+        protocol = "-1"
         cidr_blocks = ["0.0.0.0/0"]
     }
 
