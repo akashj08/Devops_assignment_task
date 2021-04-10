@@ -38,7 +38,7 @@ variable "private_subnet_cidr_blocks" {
 }
 
 variable "availability_zones" {
-  default     = ["us-east-2a", "us-east-2b"]
+  default     = ["us-east-2a", "us-east-2b","us-east-2c"]
   type        = list
   description = "List of availability zones"
 }
