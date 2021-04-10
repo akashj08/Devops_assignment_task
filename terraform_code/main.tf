@@ -128,6 +128,8 @@ resource "aws_instance" "public-app-1" {
     subnet_id = aws_subnet.public[count.index].id
     associate_public_ip_address = true
     source_dest_check = false
+    user_data = "${file("install_scprit_public_server.sh")}"
+
     
 
 }
