@@ -1,13 +1,22 @@
 
-variable "secret_key" {
-     description = "Secret key to AWS console"
-     
-}
 
 variable "region" {
-  default     = "eu-west-3"
+  default     = "us-east-2"
   type        = string
   description = "Region of the VPC"
+}
+
+variable "ami_id" {
+  default     = "ami-030d28aa0956529bb"
+  type        = string
+  description = "Region of the VPC"
+}
+
+
+
+variable "aws_key_name" {
+  default     = "gaurav"
+  description = "aws_key_name"
 }
 
 
