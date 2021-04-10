@@ -13,7 +13,6 @@ variable "ami_id" {
 }
 
 
-
 variable "aws_key_name" {
   default     = "gaurav"
   description = "aws_key_name"
@@ -39,7 +38,7 @@ variable "private_subnet_cidr_blocks" {
 }
 
 variable "availability_zones" {
-  default     = ["eu-west-3a", "eu-west-3b"]
+  default     = ["us-east-2a", "us-east-2b"]
   type        = list
   description = "List of availability zones"
 }
