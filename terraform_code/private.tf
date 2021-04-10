@@ -35,9 +35,7 @@ resource "aws_security_group" "private_sg" {
 
     vpc_id = "${aws_vpc.default.id}"
 
-    tags {
-        Name = "PrivateServerSG"
-    }
+    
 }
 
 resource "aws_instance" "private-app-1" {
