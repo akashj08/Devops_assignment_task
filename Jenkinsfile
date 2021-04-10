@@ -32,7 +32,7 @@ node {
       // build docker image
       sh "whoami"
       sh "mv ./target/hello*.jar ./data" 
-      sh "docker build -t akashj08/sprint-boot-app-ci-cd:${BUILD_NUMBER} ."  
+      sh "sudo docker build -t akashj08/sprint-boot-app-ci-cd:${BUILD_NUMBER} ."  
       
     }
    
@@ -45,11 +45,11 @@ node {
       sh "docker push akashj08/sprint-boot-app-ci-cd:${BUILD_NUMBER}"
     }
     }
-    stage ('Deploy to k8s') {
-            echo "We are going to deploy service"
-            sh "kubectl set image deployment/spring-boot-app spring-boot-app=akashj08/sprint-boot-app-ci-cd:${BUILD_NUMBER} -n test "
-            sh "kubectl rollout status deployment/spring-boot-app -n test "
-        }
+//    stage ('Deploy to k8s') {
+//            echo "We are going to deploy service"
+//            sh "kubectl set image deployment/spring-boot-app spring-boot-app=akashj08/sprint-boot-app-ci-cd:${BUILD_NUMBER} -n test "
+//            sh "kubectl rollout status deployment/spring-boot-app -n test "
+//        }
 
 
 
