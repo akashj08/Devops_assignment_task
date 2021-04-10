@@ -1,7 +1,7 @@
 /*
   Web Servers
 */
-resource "aws_security_group" "web" {
+resource "aws_security_group" "public_app" {
     name = "vpc_web"
     description = "Allow incoming HTTP connections."
 
@@ -49,7 +49,7 @@ resource "aws_instance" "public_app_1" {
     availability_zone = "eu-west-1a"
     instance_type = "m1.small"
     key_name = "${var.aws_key_name}"
-    vpc_security_group_ids = ["${aws_security_group.web.id}"]
+    vpc_security_group_ids = ["${aws_security_group.public_app_1.id}"]
     subnet_id = "${aws_subnet.eu-west-1a-public.id}"
     associate_public_ip_address = true
     source_dest_check = false
