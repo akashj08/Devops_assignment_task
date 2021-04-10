@@ -120,7 +120,7 @@ resource "aws_security_group" "public_sg" {
 
 resource "aws_instance" "public-app-1" {
     count = length(var.public_subnet_cidr_blocks)
-    ami = "${var.ami_id}"
+    ami = "ami-01e7ca2ef94a0ae86"
     availability_zone = var.availability_zones[count.index]
     instance_type = "t2.small"
     key_name = "${var.aws_key_name}"
@@ -172,7 +172,7 @@ resource "aws_security_group" "private_sg" {
 
 resource "aws_instance" "private-app-1" {
     count = length(var.private_subnet_cidr_blocks)
-    ami = "${var.ami_id}"
+    ami = "ami-01e7ca2ef94a0ae86"
     availability_zone = var.availability_zones[count.index]
     instance_type = "t2.small"
     key_name = "${var.aws_key_name}"
