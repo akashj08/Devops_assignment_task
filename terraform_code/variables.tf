@@ -20,19 +20,19 @@ variable "aws_key_name" {
 
 
 variable "cidr_block" {
-  default     = "10.0.0.0/16"
+  default     = "172.20.0.0/16"
   type        = string
   description = "CIDR block for the VPC"
 }
 
 variable "public_subnet_cidr_blocks" {
-  default     = ["10.0.0.0/24"]
+  default     = ["172.20.10.0/24"]
   type        = list
   description = "List of public subnet CIDR blocks"
 }
 
 variable "private_subnet_cidr_blocks" {
-  default     = ["10.0.1.0/24"]
+  default     = ["172.20.0.0/24"]
   type        = list
   description = "List of private subnet CIDR blocks"
 }
