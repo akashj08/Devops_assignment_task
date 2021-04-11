@@ -119,7 +119,6 @@ resource "aws_security_group" "public_sg" {
 }
 
 resource "aws_instance" "public-app-1" {
-    name = "public-app-1"
     count = length(var.public_subnet_cidr_blocks)
     ami = "ami-01e7ca2ef94a0ae86"
     availability_zone = var.availability_zones[count.index]
@@ -131,7 +130,9 @@ resource "aws_instance" "public-app-1" {
     source_dest_check = false
     user_data = "${file("install_scprit_public_server.sh")}"
 
-    
+    tags = {
+    Name = "public-app-1"
+  }
 
 }
 
@@ -174,7 +175,6 @@ resource "aws_security_group" "private_sg" {
 }
 
 resource "aws_instance" "private-app-1" {
-    name = "private-app-1"
     count = length(var.private_subnet_cidr_blocks)
     ami = "ami-01e7ca2ef94a0ae86"
     availability_zone = var.availability_zones[count.index]
@@ -185,7 +185,9 @@ resource "aws_instance" "private-app-1" {
     source_dest_check = false
     user_data = "${file("install_scprit_private_server.sh")}"
 
-
+tags = {
+    Name = "private-app-1"
+  }
     
 }
 
