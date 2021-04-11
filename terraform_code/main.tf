@@ -131,7 +131,7 @@ resource "aws_instance" "public-app-1" {
     user_data = "${file("install_scprit_public_server.sh")}"
 
     tags = {
-    Name = "public-app-1"
+    Name = "public-app-[count.index]"
   }
 
 }
@@ -186,7 +186,7 @@ resource "aws_instance" "private-app-1" {
     user_data = "${file("install_scprit_private_server.sh")}"
 
 tags = {
-    Name = "private-app-1"
+    Name = "private-app-[count.index]"
   }
     
 }
