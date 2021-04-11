@@ -34,21 +34,20 @@ node {
     stage('Build Docker Image') {
       // build docker image
       sh "whoami"
-      //sh "mv ./target/hello*.jar ./data" 
       sh "sudo docker build -t akashj08/sprint-boot-app-ci-cd:${BUILD_NUMBER} ."  
       
     }
    
     stage('Push Docker Image'){
       
-      // deploy docker image to nexus
+      // deploy docker image to Docker hub
       withCredentials([string(credentialsId: 'DOCKER_PASSWORD', variable: 'DOCKER_PASSWORD')]) {        
       echo "Docker Image Tag Name: akashj08/sprint-boot-app-ci-cd:${BUILD_NUMBER}"
       sh "sudo docker login -u akashj08 -p ${DOCKER_PASSWORD}"
       sh "sudo  docker push akashj08/sprint-boot-app-ci-cd:${BUILD_NUMBER}"
     }
     }
-    stage ('Deploy to Docker Image') {
+    stage ('Deploy Docker Image to AppServer') {
             echo "We are going to deploy service"
             sh "ssh app-server sudo docker pull akashj08/sprint-boot-app-ci-cd:${BUILD_NUMBER}"
 
@@ -69,7 +68,6 @@ node {
                                 returnStdout: true
                             ).trim()
             echo "Curl Response: ${status}"
-            //sh "ssh app-server curl localhost:8080 "
 
        }
 
